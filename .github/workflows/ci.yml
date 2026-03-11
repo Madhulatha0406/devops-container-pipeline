@@ -41,3 +41,11 @@ jobs:
 
       - name: Push Image
         run: docker push madhulatha07/calculator-app
+          - name: Create artifact
+        run: zip -r build-package.zip .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-package
+          path: build-package.zip
